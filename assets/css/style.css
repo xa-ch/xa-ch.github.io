@@ -1,61 +1,120 @@
+/* =============================
+
+XA-CH Typography System v4
+
+Ubuntu + System CJK
+
+============================= */
+
+
+
 @font-face{
 
-font-family:UbuntuXA;
+font-family:"XA Ubuntu";
 
-src:url("/assets/fonts/Ubuntu-Regular.woff2");
+src:url("../fonts/Ubuntu-Regular.woff2")
+format("woff2");
+
+font-weight:400;
+
+font-display:swap;
 
 }
 
 
+
 @font-face{
 
-font-family:UbuntuXA;
+font-family:"XA Ubuntu";
 
-src:url("/assets/fonts/Ubuntu-Bold.woff2");
+src:url("../fonts/Ubuntu-Medium.woff2")
+format("woff2");
+
+font-weight:500;
+
+font-display:swap;
+
+}
+
+
+
+@font-face{
+
+font-family:"XA Ubuntu";
+
+src:url("../fonts/Ubuntu-Bold.woff2")
+format("woff2");
 
 font-weight:700;
 
+font-display:swap;
+
 }
+
 
 
 @font-face{
 
-font-family:UbuntuMonoXA;
+font-family:"XA Mono";
 
-src:url("/assets/fonts/UbuntuMono-Regular.woff2");
+src:url("../fonts/UbuntuMono-Regular.woff2")
+format("woff2");
+
+font-display:swap;
 
 }
+
+
 
 
 
 :root{
 
 
---bg:#faf9f6;
+--font-display:
 
---text:#171717;
-
---gray:#666;
-
---line:#ddd8d0;
-
---orange:#e95420;
-
-
---font:
-
-UbuntuXA,
-"Ubuntu CJK",
+"XA Ubuntu",
+"Microsoft YaHei",
+"PingFang SC",
+"Noto Sans SC",
 sans-serif;
 
 
---mono:
 
-UbuntuMonoXA,
+--font-body:
+
+"XA Ubuntu",
+"Microsoft YaHei",
+"PingFang SC",
+"Noto Sans SC",
+sans-serif;
+
+
+
+--font-code:
+
+"XA Mono",
 monospace;
 
 
+
+
+--bg:#faf9f6;
+
+--surface:#ffffff;
+
+--text:#171717;
+
+--muted:#666;
+
+--line:#ddd8d0;
+
+--accent:#e95420;
+
+
+
 }
+
 
 
 
@@ -68,10 +127,19 @@ box-sizing:border-box;
 
 
 
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+
 body{
 
 
 margin:0;
+
 
 padding:40px;
 
@@ -86,13 +154,31 @@ color:
 var(--text);
 
 
+
 font-family:
 
-var(--font);
+var(--font-body);
+
+
+
+font-size:
+
+16px;
+
+
+
+line-height:
+
+1.75;
 
 
 }
 
+
+
+
+
+/* Header */
 
 
 header{
@@ -105,9 +191,11 @@ justify-content:space-between;
 align-items:center;
 
 
+
 border-bottom:
 
 1px solid var(--line);
+
 
 
 padding-bottom:
@@ -122,14 +210,22 @@ padding-bottom:
 .logo{
 
 
+font-family:
+
+var(--font-display);
+
+
+
 font-size:
 
 34px;
 
 
+
 font-weight:
 
 700;
+
 
 
 letter-spacing:
@@ -141,17 +237,17 @@ letter-spacing:
 
 
 
+
 nav{
 
 
 display:flex;
 
-gap:
-
-30px;
-
 
 align-items:center;
+
+
+gap:30px;
 
 
 }
@@ -163,7 +259,19 @@ nav a{
 
 font-family:
 
-var(--mono);
+var(--font-code);
+
+
+font-size:
+
+13px;
+
+
+
+letter-spacing:
+
+.08em;
+
 
 
 cursor:pointer;
@@ -173,7 +281,28 @@ cursor:pointer;
 
 
 
+
+
 button{
+
+
+font-family:
+
+var(--font-body);
+
+
+font-size:
+
+14px;
+
+
+font-weight:
+
+500;
+
+
+
+background:none;
 
 
 border:
@@ -181,17 +310,15 @@ border:
 1px solid var(--text);
 
 
-background:none;
+
+border-radius:
+
+999px;
 
 
 padding:
 
 8px 18px;
-
-
-border-radius:
-
-20px;
 
 
 cursor:pointer;
@@ -202,17 +329,21 @@ cursor:pointer;
 
 
 
+/* Hero */
+
+
 .hero{
-
-
-padding:
-
-100px 0;
 
 
 max-width:
 
 900px;
+
+
+
+padding:
+
+110px 0 90px;
 
 
 }
@@ -224,12 +355,25 @@ max-width:
 
 font-family:
 
-var(--mono);
+var(--font-code);
+
+
+
+font-size:
+
+13px;
+
 
 
 color:
 
-var(--orange);
+var(--accent);
+
+
+
+letter-spacing:
+
+.08em;
 
 
 }
@@ -239,14 +383,38 @@ var(--orange);
 h1{
 
 
+font-family:
+
+var(--font-display);
+
+
+
 font-size:
 
-clamp(50px,8vw,90px);
+clamp(
+46px,
+7vw,
+82px
+);
+
+
+
+font-weight:
+
+700;
+
 
 
 line-height:
 
-1.1;
+1.15;
+
+
+
+letter-spacing:
+
+-0.025em;
+
 
 
 margin:
@@ -266,14 +434,45 @@ font-size:
 24px;
 
 
+
+max-width:
+
+700px;
+
+
+
 color:
 
-var(--gray);
+var(--muted);
 
 
 }
 
 
+
+/* Chinese title */
+
+:lang(zh-CN) h1{
+
+
+letter-spacing:
+
+0;
+
+
+
+line-height:
+
+1.3;
+
+
+}
+
+
+
+
+
+/* Project */
 
 
 .projects{
@@ -294,9 +493,11 @@ border-top:
 display:grid;
 
 
+
 grid-template-columns:
 
 100px 1fr;
+
 
 
 padding:
@@ -304,9 +505,11 @@ padding:
 45px 20px;
 
 
+
 border-bottom:
 
 1px solid var(--line);
+
 
 
 border-radius:
@@ -314,9 +517,10 @@ border-radius:
 18px;
 
 
+
 transition:
 
-.4s;
+.4s cubic-bezier(.2,.8,.2,1);
 
 
 }
@@ -326,12 +530,16 @@ transition:
 .card:hover{
 
 
-background:white;
+background:
+
+var(--surface);
+
 
 
 transform:
 
 translateX(10px);
+
 
 
 box-shadow:
@@ -344,37 +552,61 @@ box-shadow:
 
 
 
-.number,
-.status{
-
-
-font-family:
-
-var(--mono);
-
-
-}
-
-
 
 .number{
 
 
+font-family:
+
+var(--font-code);
+
+
+
+font-size:
+
+16px;
+
+
+
 color:
 
-var(--orange);
+var(--accent);
 
 
 }
 
 
 
-h2{
+
+.card h2{
+
+
+font-family:
+
+var(--font-display);
+
 
 
 font-size:
 
-38px;
+clamp(
+26px,
+4vw,
+38px
+);
+
+
+
+font-weight:
+
+500;
+
+
+
+line-height:
+
+1.3;
+
 
 
 margin:
@@ -389,9 +621,21 @@ margin:
 .card p{
 
 
+font-size:
+
+18px;
+
+
+
+line-height:
+
+1.8;
+
+
+
 color:
 
-var(--gray);
+var(--muted);
 
 
 }
@@ -399,6 +643,24 @@ var(--gray);
 
 
 .status{
+
+
+font-family:
+
+var(--font-code);
+
+
+
+font-size:
+
+12px;
+
+
+
+letter-spacing:
+
+.12em;
+
 
 
 margin-top:
@@ -418,6 +680,7 @@ color:
 #999;
 
 
+
 margin-right:
 
 20px;
@@ -428,10 +691,14 @@ margin-right:
 
 
 
+
 .reveal{
 
 
-opacity:0;
+opacity:
+
+0;
+
 
 
 transform:
@@ -446,12 +713,16 @@ translateY(40px);
 .show{
 
 
-opacity:1;
+opacity:
+
+1;
+
 
 
 transform:
 
 translateY(0);
+
 
 
 transition:
@@ -464,6 +735,7 @@ transition:
 
 
 
+
 footer{
 
 
@@ -472,17 +744,27 @@ padding-top:
 60px;
 
 
+
 font-family:
 
-var(--mono);
+var(--font-code);
+
+
+
+font-size:
+
+14px;
+
 
 
 color:
 
-var(--gray);
+var(--muted);
 
 
 }
+
+
 
 
 
@@ -491,18 +773,68 @@ var(--gray);
 
 body{
 
-padding:20px;
+
+padding:
+
+20px;
+
 
 }
+
 
 
 header{
 
-flex-direction:column;
 
-gap:20px;
+flex-direction:
+
+column;
+
+
+
+align-items:
+
+flex-start;
+
+
+
+gap:
+
+20px;
+
 
 }
+
+
+
+h1{
+
+
+font-size:
+
+44px;
+
+
+
+line-height:
+
+1.25;
+
+
+}
+
+
+
+.hero p{
+
+
+font-size:
+
+19px;
+
+
+}
+
 
 
 .card{
@@ -519,5 +851,18 @@ gap:
 
 
 }
+
+
+
+.card h2{
+
+
+font-size:
+
+28px;
+
+
+}
+
 
 }
